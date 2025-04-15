@@ -1,0 +1,24 @@
+#!/bin/sh
+
+
+MODULE="usblcpd"
+
+
+
+lsmod | grep -q "$MODULE" 
+
+if [[ $? -eq 1 ]]
+
+then 
+		echo "Starting HAL9000 !" 
+	        sleep 2	
+		echo "OPen the pod bay doors HAL !"
+		sudo insmod /home/user/lci_ldx9000_driver/usblcpd.ko
+		sudo systemctl start hal9000
+		exit 0
+	else  
+			echo "HAL Powered on."   
+			
+fi
+exit
+

@@ -1,0 +1,27 @@
+[Unit]
+Description=HAL9000 LCD POS Program 
+
+
+After=network.target bootmessage.service
+
+
+[Service]
+Restart=on-failure
+RestartSec=60
+
+#  RemainAfterExit=true
+StandardOutput=null
+StandardError=journal
+User=root
+Group=root
+Type=single
+ExecStart=//home/mharbuck/lci_ldx9000_driver/no-hal9000
+
+
+
+
+
+[Install]
+WantedBy=default.target
+
+
